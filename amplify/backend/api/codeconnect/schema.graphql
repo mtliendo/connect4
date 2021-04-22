@@ -1,0 +1,32 @@
+type Game @model @auth(rules: [{ allow: private }]) {
+  id: ID!
+  createdByUser: String!
+  sentToUsername: String!
+  gameName: String!
+  gameDetails: GameDetails!
+}
+
+type GameDetails {
+  player1: String!
+  player2: String!
+  currentPlayer: String!
+  board: String!
+  gameOver: Boolean!
+  message: String!
+}
+
+type Subscription {
+  onGameCreatedForUsername(username: String!): Game
+    @aws_subscribe(mutations: ["createGame"])
+
+  onGameUpdatedByID(gameID: ID!): Game @aws_subscribe(mutations: ["updateGame"])
+}
+
+# allow signed in users to search for anyone's username
+type User
+  @model(mutations: null, subscriptions: null)
+  @key(fields: ["username"])
+  @auth(rules: [{ allow: private, operations: [read] }]) {
+  id: ID!
+  username: String!
+}

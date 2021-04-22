@@ -1,0 +1,30 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-codeconnect-dev-103735-authRole",
+      "UnauthRoleArn": "arn:aws:iam::936471194299:role/amplify-codeconnect-dev-103735-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::936471194299:role/amplify-codeconnect-dev-103735-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-codeconnect-dev-103735-deployment",
+      "UnauthRoleName": "amplify-codeconnect-dev-103735-unauthRole",
+      "StackName": "amplify-codeconnect-dev-103735",
+      "StackId": "arn:aws:cloudformation:us-east-1:936471194299:stack/amplify-codeconnect-dev-103735/aadc2e70-a380-11eb-9509-0a1b09a7e4bb",
+      "AmplifyAppId": "d1mssdjlbn7l7k"
+    },
+    "categories": {
+      "auth": {
+        "codeconnectd20b55ea": {}
+      },
+      "function": {
+        "codeconnectd20b55eaPreSignup": {
+          "deploymentBucketName": "amplify-codeconnect-dev-103735-deployment",
+          "s3Key": "amplify-builds/codeconnectd20b55eaPreSignup-3951627570544a47444f-build.zip"
+        },
+        "codeconnectd20b55eaPostConfirmation": {
+          "deploymentBucketName": "amplify-codeconnect-dev-103735-deployment",
+          "s3Key": "amplify-builds/codeconnectd20b55eaPostConfirmation-6237332b4a7a61507446-build.zip"
+        }
+      }
+    }
+  }
+}
