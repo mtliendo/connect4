@@ -2,8 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onGameCreatedForUsername = /* GraphQL */ `
-  subscription OnGameCreatedForUsername($username: String!) {
-    onGameCreatedForUsername(username: $username) {
+  subscription OnGameCreatedForUsername($sentToUsername: String!) {
+    onGameCreatedForUsername(sentToUsername: $sentToUsername) {
       id
       createdByUser
       sentToUsername

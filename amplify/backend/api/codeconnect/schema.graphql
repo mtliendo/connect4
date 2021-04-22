@@ -16,7 +16,7 @@ type GameDetails {
 }
 
 type Subscription {
-  onGameCreatedForUsername(username: String!): Game
+  onGameCreatedForUsername(sentToUsername: String!): Game
     @aws_subscribe(mutations: ["createGame"])
 
   onGameUpdatedByID(gameID: ID!): Game @aws_subscribe(mutations: ["updateGame"])

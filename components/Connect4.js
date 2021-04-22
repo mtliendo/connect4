@@ -46,10 +46,10 @@ const initialGameState = {
   gameOver: false,
   message: '',
 }
-export const Connect4 = () => {
+export const Connect4 = ({ importedGameState }) => {
   const [gameState, dispatchGameState] = useReducer(
     gameReducer,
-    initialGameState
+    importedGameState
   )
 
   const togglePlayer = (board) => {
