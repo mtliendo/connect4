@@ -1,6 +1,8 @@
 import { useReducer } from 'react'
 import { Row } from './Row'
+import { Button, Text } from '@chakra-ui/react'
 import { checkForWin, deepCloneBoard, generateNewBoard } from '../gameUtils'
+import * as gameStyles from '../styles/Home.module.css'
 
 const gameReducer = (state, action) => {
   switch (action.type) {
@@ -34,7 +36,7 @@ const gameReducer = (state, action) => {
 const initialGameState = {
   player1: 1,
   player2: 2,
-  currentPlayer: null,
+  currentPlayer: 1,
   board: [
     [null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null],
@@ -51,15 +53,6 @@ export const Connect4 = () => {
     gameReducer,
     initialGameState
   )
-
-  const togglePlayer = (board) => {
-    const nextPlayer =
-      gameState.currentPlayer === gameState.player1
-        ? gameState.player2
-        : gameState.player1
-
-    dispatchGameState({ type: 'togglePlayer', nextPlayer, board })
-  }
 
   // triggered when a user clicks a cell
   const play = (c) => {
@@ -84,7 +77,7 @@ export const Connect4 = () => {
       } else if (result === gameState.player2) {
         dispatchGameState({
           type: 'endGame',
-          message: 'Player2 (black) wins!',
+          message: 'Player2 (yellow) wins!',
           board,
         })
       } else if (result === 'draw') {
@@ -94,7 +87,12 @@ export const Connect4 = () => {
           board,
         })
       } else {
-        togglePlayer(board)
+        const nextPlayer =
+          gameState.currentPlayer === gameState.player1
+            ? gameState.player2
+            : gameState.player1
+
+        dispatchGameState({ type: 'togglePlayer', nextPlayer, board })
       }
     }
     // it's gameover and a user clicked a cell
@@ -107,17 +105,18 @@ export const Connect4 = () => {
   }
 
   return (
-    <div>
-      <button
+    <>
+      <Button
+        colorScheme="purple"
+        className={gameStyles.button}
         onClick={() => {
           dispatchGameState({ type: 'newGame', board: generateNewBoard() })
         }}
       >
         New Game
-      </button>
+      </Button>
 
       <table>
-        <thead></thead>
         <tbody>
           {gameState.board.map((row, i) => (
             <Row key={i} row={row} play={play} />
@@ -125,7 +124,7 @@ export const Connect4 = () => {
         </tbody>
       </table>
 
-      <p className="message">{gameState.message}</p>
-    </div>
+      <Text>{gameState.message}</Text>
+    </>
   )
 }

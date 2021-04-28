@@ -1,14 +1,10 @@
 import { Connect4 } from '../components/Connect4'
-
+import { Heading, VStack } from '@chakra-ui/react'
 export default function Home() {
   return (
-    <>
-      <h1>Connect 4</h1>
-      <h3>
-        This version is for local gameplay. To play online with friends, sign
-        in!
-      </h3>
+    <VStack spacing="3rem">
+      <Heading>Connect 4</Heading>
       <Connect4 />
-    </>
+    </VStack>
   )
 }

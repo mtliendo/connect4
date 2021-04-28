@@ -1,21 +1,26 @@
+import { Flex } from '@chakra-ui/layout'
+import * as gameStyles from '../styles/Home.module.css'
+
 export const Cell = ({ value, columnIndex, play }) => {
-  let color = 'white'
+  let color = 'whiteCircle'
   if (value === 1) {
-    color = 'red'
+    color = 'redCircle'
   } else if (value === 2) {
-    color = 'black'
+    color = 'yellowCircle'
   }
 
   return (
     <td>
-      <div
-        className="cell"
+      <Flex
+        justify="center"
+        align="center"
+        className={gameStyles.gameCell}
         onClick={() => {
           play(columnIndex)
         }}
       >
-        <div className={color}></div>
-      </div>
+        <div className={gameStyles[color]}></div>
+      </Flex>
     </td>
   )
 }

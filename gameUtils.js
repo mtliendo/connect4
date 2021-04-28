@@ -1,5 +1,3 @@
-// for real tho...all credit for this optimized logic belongs here: https://codepen.io/jeffleu/pen/KgbZwj?editors=0011
-
 export const generateNewBoard = () => [
   [null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null],
@@ -18,6 +16,7 @@ export const deepCloneBoard = (board) => [
   [...board[5]],
 ]
 
+// for real tho...all credit for this super optimized logic belongs here: Jeff Leu circa November 23, 2016
 const checkVertical = (board) => {
   // Check only if row is 3 or greater
   for (let r = 3; r < 6; r++) {
